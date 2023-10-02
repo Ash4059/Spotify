@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { oAuth } from "../Utils/APIAuth/oAuth";
 
 export const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
-    oAuth(userName,password);
+    
   };
 
   return (
