@@ -20,7 +20,7 @@ function Tooltip({children, tooltip}) {
         {children}
         {showTooltip && 
             <span 
-                className='absolute -left-0.5 text-xs py-1 px-2 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg'
+                className='absolute -left-0.5 text-xs py-1 px-2 bg-white border border-black rounded-lg'
             >
                 {tooltip}
             </span>
