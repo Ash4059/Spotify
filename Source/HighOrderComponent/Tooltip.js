@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 function Tooltip({children, tooltip}) {
 
     const [showTooltip, setShowTooltip] = useState(false);
-    const timer = 50;
+    const timer = 200;
 
     const toggleTooltipState = ( state ) => {
         window.setTimeout(()=>{
@@ -20,7 +20,7 @@ function Tooltip({children, tooltip}) {
         {children}
         {showTooltip && 
             <span 
-                className='absolute -left-0.5 text-xs py-1 px-2 bg-white border border-black rounded-lg'
+                className='absolute left-1/2 -translate-x-1/2 text-xs py-1 px-2 bg-white border border-black rounded-lg'
             >
                 {tooltip}
             </span>
