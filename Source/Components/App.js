@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { Navbar } from "./Navbar";
 import Loader from "./Loader";
 import store from "../Utils/Store";
+import Footer from "../Pages/Footer";
 
 const delayForLoad = async (promise) => {
     await new Promise((resolve) => {
@@ -26,72 +27,75 @@ export const App = () => {
         <BrowserRouter>
             <Provider store={store}>
                 <Navbar />
-                <Routes>
-                    <Route
-                        path="/login"
-                        element={
-                            <Suspense fallback={<Loader />}>
-                                <Login />
-                            </Suspense>
-                        }
-                    />
-                    <Route
-                        path="/music"
-                        element={
-                            <Suspense fallback={<Loader />}>
-                                <Music />
-                            </Suspense>
-                        }
-                    />
-                    <Route
-                        path="/liked"
-                        element={
-                            <Suspense fallback={<Loader />}>
-                                <Liked />
-                            </Suspense>
-                        }
-                    />
-                    <Route
-                        path="/podcast"
-                        element={
-                            <Suspense fallback={<Loader />}>
-                                <Podcast />
-                            </Suspense>
-                        }
-                    />
-                    <Route
-                        path="/bookmark"
-                        element={
-                            <Suspense fallback={<Loader />}>
-                                <Bookmark />
-                            </Suspense>
-                        }
-                    />
-                    <Route
-                        path="/history"
-                        element={
-                            <Suspense fallback={<Loader />}>
-                                <History />
-                            </Suspense>
-                        }
-                    />
-                    <Route
-                        path="/account"
-                        element={
-                            <Suspense fallback={<Loader />}>
-                                <Account />
-                            </Suspense>
-                        }
-                    />
-                    <Route
-                        path="*"
-                        element={
-                            <Suspense fallback={<Loader />}>
-                                <Home />
-                            </Suspense>
-                        }
-                    />
-                </Routes>
+                <div class="bg-gray-700 flex justify-center" style={{ height: "calc(100vh - 201px)" }}>
+                    <Routes>
+                        <Route
+                            path="/login"
+                            element={
+                                <Suspense fallback={<Loader />}>
+                                    <Login />
+                                </Suspense>
+                            }
+                        />
+                        <Route
+                            path="/songs"
+                            element={
+                                <Suspense fallback={<Loader />}>
+                                    <Music />
+                                </Suspense>
+                            }
+                        />
+                        <Route
+                            path="/liked"
+                            element={
+                                <Suspense fallback={<Loader />}>
+                                    <Liked />
+                                </Suspense>
+                            }
+                        />
+                        <Route
+                            path="/podcast"
+                            element={
+                                <Suspense fallback={<Loader />}>
+                                    <Podcast />
+                                </Suspense>
+                            }
+                        />
+                        <Route
+                            path="/bookmark"
+                            element={
+                                <Suspense fallback={<Loader />}>
+                                    <Bookmark />
+                                </Suspense>
+                            }
+                        />
+                        <Route
+                            path="/history"
+                            element={
+                                <Suspense fallback={<Loader />}>
+                                    <History />
+                                </Suspense>
+                            }
+                        />
+                        <Route
+                            path="/account"
+                            element={
+                                <Suspense fallback={<Loader />}>
+                                    <Account />
+                                </Suspense>
+                            }
+                        />
+                        <Route
+                            path="*"
+                            element={
+                                <Suspense fallback={<Loader />}>
+                                    <Home />
+                                </Suspense>
+                            }
+                        />
+                    </Routes>
+                </div>
+                <Footer />
             </Provider>
         </BrowserRouter>
     );

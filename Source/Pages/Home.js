@@ -1,8 +1,11 @@
 import React from 'react'
+import Music from './Music';
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <Music />
+    </div>
   )
 }
 

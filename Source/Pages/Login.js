@@ -1,40 +1,52 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
-export const Login = () => {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = () => {
-    
-  };
-
+const Login = () => {
   return (
-    <div className="">
-      <form className="m-4 flex flex-col" onSubmit={handleSubmit}>
-        <label>
-          Enter your username :
+    <div className="text-white p-8 rounded w-full max-w-md">
+      <h2 className="text-2xl font-bold text-center">Login</h2>
+      <form>
+        <div className="mb-4">
+          <label className="block text-gray-700 mb-2" htmlFor="email">
+            Email
+          </label>
           <input
             type="email"
-            value={userName}
-            className="border border-black"
-            onChange={(e) => {
-              setUserName(e.target.value);
-            }}
+            id="email"
+            className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
+            placeholder="Enter your email"
           />
-        </label>
-        <label>
-          Enter your password :
+        </div>
+        <div className="mb-6">
+          <label className="block text-gray-700 mb-2" htmlFor="password">
+            Password
+          </label>
           <input
             type="password"
-            className="border border-black"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
+            id="password"
+            className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
+            placeholder="Enter your password"
           />
-        </label>
-        <input type="submit" />
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-gray-100 py-2 rounded hover:bg-blue-600 transition duration-200"
+        >
+          Login
+        </button>
       </form>
+      <div className="mt-6 text-center">
+        <p className="text-gray-100">Don't have an account?</p>
+        <Link
+          to="/signup"
+          className="text-blue-500 hover:underline"
+          onClick={() => alert("Redirect to signup page")}
+        >
+          Sign up
+        </Link>
+      </div>
     </div>
   );
 };
+
+export default Login;
