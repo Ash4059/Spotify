@@ -112,7 +112,7 @@ const UserForm = ({ mode }) => {
           {mode}
         </button>
       </form>
-      <div className="mt-2 text-center">
+      <div className="mt-6 text-center">
         <p className="text-gray-100">
           {isSignUp ? "Already have an account?" : "Don't have an account?"}
         </p>

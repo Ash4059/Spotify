@@ -1,17 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import store from "../Utils/Store";
 
 export const Navbar = () => {
   const userName = useSelector((store) => store.user?.user?.name);
 
+  const activeStyle = {
+    "text-decoration": "underline",
+    "font-weight": "bold"
+  }
+
   return (
     <div className="bg-black text-white dark:bg-white dark:text-black p-4 flex justify-between items-center border-b border-zinc-300 dark:border-zinc-700">
       <div className="flex items-center">
-        <Link to={"/"} className="text-lg font-bold cursor-pointer">
+        <NavLink 
+          to={"/"} 
+          className="text-lg font-bold cursor-pointer"
+          style={({ isActive }) => isActive ? activeStyle : null}
+        >
           AudioWebApp
-        </Link>
+        </NavLink>
       </div>
       <div className="border-2 border-solid border-black rounded-2xl">
         <input
@@ -21,48 +30,55 @@ export const Navbar = () => {
         />
       </div>
       <nav className="hidden sm:flex items-center space-x-4">
-        <Link
+        <NavLink
           to="/artist"
           className="text-white dark:text-black hover:text-white dark:hover:text-black"
+          style={({ isActive }) => isActive ? activeStyle : null}
         >
           Artist
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/podcast"
           className="text-white dark:text-black hover:text-white dark:hover:text-black"
+          style={({ isActive }) => isActive ? activeStyle : null}
         >
           Podcast
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/songs"
           className="text-white dark:text-black hover:text-white dark:hover:text-black"
+          style={({ isActive }) => isActive ? activeStyle : null}
         >
           Song
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/history"
           className="text-white dark:text-black hover:text-white dark:hover:text-black"
+          style={({ isActive }) => isActive ? activeStyle : null}
         >
           History
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/liked"
           className="text-white dark:text-black hover:text-white dark:hover:text-black"
+          style={({ isActive }) => isActive ? activeStyle : null}
         >
           Liked
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/boolmark"
           className="text-white dark:text-black hover:text-white dark:hover:text-black"
+          style={({ isActive }) => isActive ? activeStyle : null}
         >
           Bookmark
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/login"
           className="text-white dark:text-black hover:text-white dark:hover:text-black"
+          style={({ isActive }) => isActive ? activeStyle : null}
         >
           LogIn
-        </Link>
+        </NavLink>
       </nav>
     </div>
   );
