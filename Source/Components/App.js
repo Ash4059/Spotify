@@ -15,7 +15,7 @@ const delayForLoad = async (promise) => {
 
 export const App = () => {
     const Home = lazy(() => delayForLoad(import("../Pages/Home")));
-    const Login = lazy(() => delayForLoad(import("../Pages/Login")));
+    const UserForm = lazy(() => delayForLoad(import("../Pages/UserForm")));
     const Music = lazy(() => delayForLoad(import("../Pages/Music")));
     const Podcast = lazy(() => delayForLoad(import("../Pages/Podcast")));
     const Liked = lazy(() => delayForLoad(import("../Pages/LikedAudio")));
@@ -27,13 +27,21 @@ export const App = () => {
         <BrowserRouter>
             <Provider store={store}>
                 <Navbar />
-                <div class="bg-gray-700 flex justify-center" style={{ height: "calc(100vh - 201px)" }}>
+                <div class="bg-gray-700 flex justify-center items-center" style={{ height: "calc(100vh - 201px)" }}>
                     <Routes>
                         <Route
                             path="/login"
                             element={
                                 <Suspense fallback={<Loader />}>
-                                    <Login />
+                                    <UserForm mode="Login" />
+                                </Suspense>
+                            }
+                        />
+                        <Route
+                            path="/signup"
+                            element={
+                                <Suspense fallback={<Loader />}>
+                                    <UserForm mode="Sign Up" />
                                 </Suspense>
                             }
                         />
