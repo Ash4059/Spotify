@@ -1,11 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import {
-  BrowserRouter,
   createBrowserRouter,
-  createRoutesFromElements,
-  Route,
   RouterProvider,
-  Routes,
 } from "react-router-dom";
 import { Provider } from "react-redux";
 import Loader from "./Loader";
