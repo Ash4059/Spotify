@@ -8,10 +8,8 @@ import {
   Routes,
 } from "react-router-dom";
 import { Provider } from "react-redux";
-import { Navbar } from "./Navbar";
 import Loader from "./Loader";
 import store from "../Utils/Store";
-import Footer from "../Pages/Footer";
 
 const Home = lazy(() => delayForLoad(import("../Pages/Home")));
 const UserForm = lazy(() => delayForLoad(import("../Pages/UserForm")));
