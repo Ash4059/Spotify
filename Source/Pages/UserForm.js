@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const UserForm = ({ mode }) => {
   const isSignUp = mode === "Sign Up";
-
   return (
     <div className=" text-gray-700 p-8 rounded w-full h-[54vh] max-w-md overflow-auto no-scrollbar shadow-lg shadow-gray-100">
       <h2 className="text-2xl text-white font-bold mb-2 text-center">{mode}</h2>
