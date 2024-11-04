@@ -16,6 +16,7 @@ const Bookmark = lazy(() => delayForLoad(import("../Pages/Bookmark")));
 const History = lazy(() => delayForLoad(import("../Pages/History")));
 const Account = lazy(() => delayForLoad(import("../Pages/Account")));
 const Error = lazy(() => delayForLoad(import("./Error")));
+const Artist = lazy(() => delayForLoad(import("../Pages/Artist")));
 
 const delayForLoad = async (promise) => {
   await new Promise((resolve) => {
@@ -57,6 +58,15 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<Loader />}>
             <Music />
+          </Suspense>
+        ),
+        errorElement: <Error />,
+      },
+      {
+        path: "artist",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Artist />
           </Suspense>
         ),
         errorElement: <Error />,
