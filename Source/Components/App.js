@@ -6,8 +6,10 @@ import {
 import { Provider } from "react-redux";
 import Loader from "./Loader";
 import store from "../Utils/Store";
+import AuthRequired from "./AuthRequired";
 
 const Home = lazy(() => delayForLoad(import("../Pages/Home")));
+const MainContent = lazy(() => delayForLoad(import("../Pages/MainContent")));
 const UserForm = lazy(() => delayForLoad(import("../Pages/UserForm")));
 const Music = lazy(() => delayForLoad(import("../Pages/Music")));
 const Podcast = lazy(() => delayForLoad(import("../Pages/Podcast")));
@@ -35,6 +37,15 @@ const router = createBrowserRouter([
     ),
     errorElement: <Error />,
     children: [
+      {
+        path: "",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <MainContent />
+          </Suspense>
+        ),
+        errorElement: <Error />,
+      },
       {
         path: "login",
         element: (
@@ -78,6 +89,7 @@ const router = createBrowserRouter([
             <Liked />
           </Suspense>
         ),
+        loader: AuthRequired,
         errorElement: <Error />,
       },
       {
@@ -96,6 +108,7 @@ const router = createBrowserRouter([
             <Bookmark />
           </Suspense>
         ),
+        loader: AuthRequired,
         errorElement: <Error />,
       },
       {
@@ -105,6 +118,7 @@ const router = createBrowserRouter([
             <History />
           </Suspense>
         ),
+        loader: AuthRequired,
         errorElement: <Error />,
       },
       {
