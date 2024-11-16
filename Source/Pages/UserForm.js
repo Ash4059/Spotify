@@ -1,12 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData, Form } from "react-router-dom";
 
 const UserForm = ({ mode }) => {
   const isSignUp = mode === "Sign Up";
+  const data = useLoaderData();
   return (
     <div className=" text-gray-700 p-8 rounded w-full h-[54vh] max-w-md overflow-auto no-scrollbar shadow-lg shadow-gray-100">
+      {!isSignUp && data && (
+        <h3 className="text-red-500 text-center m-4">{data}</h3>
+      )}
       <h2 className="text-2xl text-white font-bold mb-2 text-center">{mode}</h2>
-      <form>
+      <Form method="post">
         {isSignUp && (
           <>
             <div className="mb-4">
@@ -107,10 +111,10 @@ const UserForm = ({ mode }) => {
         <button
           type="submit"
           className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200"
-        >
+          >
           {mode}
         </button>
-      </form>
+      </Form>
       <div className="mt-6 text-center">
         <p className="text-gray-100">
           {isSignUp ? "Already have an account?" : "Don't have an account?"}

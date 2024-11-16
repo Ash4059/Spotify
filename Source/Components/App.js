@@ -6,26 +6,21 @@ import {
 import { Provider } from "react-redux";
 import Loader from "./Loader";
 import store from "../Utils/Store";
-import AuthRequired from "./AuthRequired";
+import AuthRequired from "../Utils/AuthRequired";
+import FormLoader from "./FormLoader";
+import UserFormAction from "./FormAction";
 
-const Home = lazy(() => delayForLoad(import("../Pages/Home")));
-const MainContent = lazy(() => delayForLoad(import("../Pages/MainContent")));
-const UserForm = lazy(() => delayForLoad(import("../Pages/UserForm")));
-const Music = lazy(() => delayForLoad(import("../Pages/Music")));
-const Podcast = lazy(() => delayForLoad(import("../Pages/Podcast")));
-const Liked = lazy(() => delayForLoad(import("../Pages/LikedAudio")));
-const Bookmark = lazy(() => delayForLoad(import("../Pages/Bookmark")));
-const History = lazy(() => delayForLoad(import("../Pages/History")));
-const Account = lazy(() => delayForLoad(import("../Pages/Account")));
-const Error = lazy(() => delayForLoad(import("./Error")));
-const Artist = lazy(() => delayForLoad(import("../Pages/Artist")));
-
-const delayForLoad = async (promise) => {
-  await new Promise((resolve) => {
-    setTimeout(resolve, 1000);
-  });
-  return promise;
-};
+const Home = lazy(() => import("../Pages/Home"));
+const MainContent = lazy(() => import("../Pages/MainContent"));
+const UserForm = lazy(() => import("../Pages/UserForm"));
+const Music = lazy(() => import("../Pages/Music"));
+const Podcast = lazy(() => import("../Pages/Podcast"));
+const Liked = lazy(() => import("../Pages/LikedAudio"));
+const Bookmark = lazy(() => import("../Pages/Bookmark"));
+const History = lazy(() => import("../Pages/History"));
+const Account = lazy(() => import("../Pages/Account"));
+const Error = lazy(() => import("./Error"));
+const Artist = lazy(() => import("../Pages/Artist"));
 
 const router = createBrowserRouter([
   {
@@ -53,6 +48,8 @@ const router = createBrowserRouter([
             <UserForm mode="Login" />
           </Suspense>
         ),
+        loader: FormLoader,
+        action: UserFormAction,
         errorElement: <Error />,
       },
       {
@@ -62,6 +59,7 @@ const router = createBrowserRouter([
             <UserForm mode="Sign Up" />
           </Suspense>
         ),
+        action: UserFormAction,
         errorElement: <Error />,
       },
       {
