@@ -38,29 +38,29 @@ const UserForm = ({ mode }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-white mb-2" htmlFor="userName">
-                Username
+              <label className="block text-white mb-2" htmlFor="emailId">
+                Email
               </label>
               <input
-                type="text"
-                id="userName"
-                name="userName"
+                type="email"
+                id="emailId"
+                name="emailId"
                 className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
-                placeholder="Enter your username"
+                placeholder="Enter your email"
               />
             </div>
           </>
         )}
         <div className="mb-4">
-          <label className="block text-white mb-2" htmlFor="emailId">
-            Email
+          <label className="block text-white mb-2" htmlFor="userName">
+            Username
           </label>
           <input
-            type="email"
-            id="emailId"
-            name="emailId"
+            type="text"
+            id="userName"
+            name="userName"
             className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
-            placeholder="Enter your email"
+            placeholder="Enter your username"
           />
         </div>
         <div className={isSignUp ? "mb-4" : "mb-8"}>
@@ -84,7 +84,7 @@ const UserForm = ({ mode }) => {
               <input
                 type="date"
                 id="dateOfBirth"
-                name="dateOfBirth"
+                name="birthDate"
                 className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
               />
             </div>
@@ -111,7 +111,7 @@ const UserForm = ({ mode }) => {
         <button
           type="submit"
           className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200"
-          >
+        >
           {mode}
         </button>
       </Form>
