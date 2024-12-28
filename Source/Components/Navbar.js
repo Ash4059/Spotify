@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import store from "../Utils/Store";
 
 export const Navbar = () => {
-  const userName = useSelector((store) => store.user?.user?.name);
+  const userName = useSelector((store) => store.user?.user?.userData?.username);
 
   const activeStyle = {
     "textDecoration": "underline",
@@ -77,7 +77,7 @@ export const Navbar = () => {
           className="text-white dark:text-black hover:text-white dark:hover:text-black"
           style={({ isActive }) => isActive ? activeStyle : null}
         >
-          LogIn
+          {userName ? userName : "Login"}
         </NavLink>
       </nav>
     </div>
