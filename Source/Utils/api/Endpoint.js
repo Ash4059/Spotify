@@ -1,15 +1,7 @@
 const URL = "http://localhost:8080/";
 
-const fetchUserData = async (url, method, body) => {
+const transformResponse = async (response) => {
   try {
-    const response = await fetch(URL + url, {
-      method: method,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    });
-
     if (!response.ok) {
       throw new Error(response.statusText);
     }
@@ -27,11 +19,26 @@ const fetchUserData = async (url, method, body) => {
 };
 
 const login = async (data) => {
-  return await fetchUserData("users/login", "POST", { data });
+  const queryString = new URLSearchParams(data).toString(); 
+  const fullUrl = `${URL + 'users/login'}?${queryString}`;
+  const response = await fetch(fullUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return await transformResponse(response);
 };
 
 const signup = async (userData) => {
-  return await fetchUserData("users/register", "POST", userData);
+  const response = await fetch(URL + 'users/register', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userData),
+  });
+  return await transformResponse(response);
 };
 
 export { login, signup };
