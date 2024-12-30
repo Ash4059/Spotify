@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <Navbar />
       <div
-        className="bg-gray-700 flex justify-center items-center"
+        className="bg-gray-700 flex justify-center"
         style={{ height: "calc(100vh - 201px)" }}
       >
         <Outlet />
