@@ -73,7 +73,7 @@ export const Navbar = () => {
           Bookmark
         </NavLink>
         <NavLink
-          to="login"
+          to={userName ? "account" : "Login"}
           className="text-white dark:text-black hover:text-white dark:hover:text-black"
           style={({ isActive }) => isActive ? activeStyle : null}
         >

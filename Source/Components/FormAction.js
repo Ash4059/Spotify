@@ -8,7 +8,7 @@ const UserFormAction = async ({ request }) => {
     const data = Object.fromEntries(formData);
     const pathName = new URL(request.url).pathname;
     let userData;
-    if(pathName === "/login") {
+    if(pathName.toLowerCase() === "/login") {
         userData = await login(data);
     }else{
         userData = await signup(data);
